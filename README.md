@@ -56,3 +56,5 @@ $ npm test
 ```sh
 $ npm run lint
 ```
+
+[![Travis](https://img.shields.io/travis/rust-lang/rust.svg)]()
