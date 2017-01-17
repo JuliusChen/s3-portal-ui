@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/JuliusChen/s3-portal-ui.svg?branch=master)](https://travis-ci.org/JuliusChen/s3-portal-ui)
+
 # S3 Portal
 
 > Constructing...
@@ -56,5 +58,3 @@ $ npm test
 ```sh
 $ npm run lint
 ```
-
-[![Travis](https://img.shields.io/travis/rust-lang/rust.svg)]()
