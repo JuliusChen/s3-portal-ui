@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/JuliusChen/s3-portal-ui.svg?branch=dev)](https://travis-ci.org/JuliusChen/s3-portal-ui)
+[![Dependency Status](https://www.versioneye.com/user/projects/5880970a452b830054c172ce/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/5880970a452b830054c172ce)
 
 # S3 Portal
 
