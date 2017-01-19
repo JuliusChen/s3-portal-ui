@@ -4,7 +4,7 @@ node_js:
 env:
   - CXX=g++-4.8
 before_script:
-  - 'npm install -g bower grunt-cli karma'
+  - 'npm install -g bower grunt-cli karma codecov'
 addons:
   apt:
     sources:
@@ -14,6 +14,9 @@ addons:
 cache:
   directories:
    - node_modules
-script: npm test
+script: 
+   - npm test
+   - istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec
+   - codecov
 after_success:
   - bash <(curl -s https://codecov.io/bash)
