@@ -79,12 +79,41 @@ export default class FileService {
           || length === baseLen + 1
           && Key.endsWith('/')
         ) && Key !== prefix;
-      }).map(file => ({
-        ...file,
-        ...this.formatFileType(file.Key),
-        icon: this.getIcon(file.Key),
-        checked: false,
-      }));
+    }).map((file) => {
+        // only for DEMO IOT
+        if( !(file.Key.match(/[a-zA-Z|\d|\-|\_]*\.[a-zA-Z]+/g)) && file.Key[file.Key.length-1] != '/') {
+          file.Key = file.Key + '/';
+        }
+        //-------------------
+        return ({
+          ...file,
+          ...this.formatFileType(file.Key),
+          icon: this.getIcon(file.Key),
+          checked: false,
+        })
+    });
+  }
+
+  appendFolderPaths(objects) {
+    let folderPaths = [];
+    objects.forEach((object) => {
+      let paths = object.Key.split('/');
+      if (paths[paths.length-1].match(/[a-zA-Z|\d|\-|\_]*\.[a-zA-Z]+/g)) {
+        paths.splice(paths.length-1, 1);
+      }
+      folderPaths.push(paths);
+    });
+
+    folderPaths = folderPaths.map((value) => {
+      return value.join('/');
+    });
+
+    folderPaths = folderPaths.filter( function( item, index, inputArray ) {
+      let a = item.toString();
+      return (inputArray.indexOf(item.toString()) == index);
+    });
+
+   return folderPaths;
   }
 
   openFile(file) {
